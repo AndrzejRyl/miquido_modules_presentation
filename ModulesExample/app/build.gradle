@@ -47,7 +47,12 @@ dependencies {
     implementation project(':core')
 
     implementation Libs.dagger2AndroidSupport
-    implementation Libs.crashlytics
+    implementation Libs.timber
+    implementation Libs.leakCanary
+    implementation Libs.stetho
+    implementation (Libs.crashlytics) {
+        transitive = true
+    }
 
     kapt Libs.dagger2Compiler
     kapt Libs.dagger2AndroidCompiler

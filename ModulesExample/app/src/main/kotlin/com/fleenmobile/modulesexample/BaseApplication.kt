@@ -11,10 +11,8 @@ abstract class BaseApplication : DaggerApplication() {
 
   override fun onCreate() {
     super.onCreate()
-    initFabric()
     initTimber()
   }
 
-  abstract fun initFabric()
   abstract fun initTimber()
 }
