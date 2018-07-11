@@ -50,6 +50,7 @@ dependencies {
     implementation Libs.timber
     implementation Libs.leakCanary
     implementation Libs.stetho
+    implementation Libs.stethoNetwork
     implementation (Libs.crashlytics) {
         transitive = true
     }

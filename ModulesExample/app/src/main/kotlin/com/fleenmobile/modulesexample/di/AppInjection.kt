@@ -23,7 +23,8 @@ abstract class AppModule {
 @Singleton
 @Component(modules = [
   AndroidInjectionModule::class,
-  AppModule::class
+  AppModule::class,
+  NetworkModule::class
 ])
 interface AppComponent : AndroidInjector<BaseApplication> {
 
