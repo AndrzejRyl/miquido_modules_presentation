@@ -1,8 +1,17 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply plugin: 'io.fabric'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath ClassPaths.fabric
+    }
+}
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -30,6 +39,18 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
 dependencies {
     implementation project(':core')
+
+    implementation Libs.dagger2AndroidSupport
+    implementation Libs.crashlytics
+
+    kapt Libs.dagger2Compiler
+    kapt Libs.dagger2AndroidCompiler
+
+    kaptAndroidTest Libs.dagger2Compiler
 }
