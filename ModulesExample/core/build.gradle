@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api Libs.supportAppcompat
+    api Libs.kotlinStdlib
+    testImplementation TestLibs.junit
+
+    api Libs.rxJava
+    api Libs.rxAndroid
+    api Libs.dagger2
+    api Libs.dagger2Android
+    api Libs.dagger2AndroidSupport
+    api Libs.retrofit
+    api Libs.retrofitGsonConverter
+    api Libs.retrofitRxAdapter
+}
