@@ -16,17 +16,15 @@ dependencies {
 
     api Libs.supportAppcompat
     api Libs.kotlinStdlib
-    testImplementation TestLibs.junit
 
-    api Libs.rxJava
-    api Libs.rxAndroid
-    api Libs.retrofit
-    api Libs.retrofitGsonConverter
-    api Libs.retrofitRxAdapter
     api Libs.dagger2AndroidSupport
 
     kapt Libs.dagger2Compiler
     kapt Libs.dagger2AndroidCompiler
 
     kaptAndroidTest Libs.dagger2Compiler
+
+    api Libs.constraintLayout
+    api Libs.anko
+    api Libs.anko_commons
 }

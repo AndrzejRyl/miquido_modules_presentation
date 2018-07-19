@@ -44,10 +44,9 @@ kapt {
 }
 
 dependencies {
-    implementation project(':core')
-    implementation project(':settings')
+    api project(':settings')
 
-    testImplementation project(':testcore')
+    testApi project(':testcore')
 
     implementation Libs.constraintLayout
     implementation Libs.dagger2AndroidSupport
@@ -58,14 +57,9 @@ dependencies {
     implementation(Libs.crashlytics) {
         transitive = true
     }
-    implementation Libs.anko
-    implementation Libs.anko_commons
 
     kapt Libs.dagger2Compiler
     kapt Libs.dagger2AndroidCompiler
 
     kaptAndroidTest Libs.dagger2Compiler
-
-    testImplementation TestLibs.junit
-    testImplementation TestLibs.mockito
 }

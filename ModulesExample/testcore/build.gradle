@@ -13,11 +13,11 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation TestLibs.junit
-    implementation TestLibs.mockito
-    implementation Libs.rxJava
-    implementation Libs.rxAndroid
-    implementation Libs.kotlinStdlib
+    api TestLibs.junit
+    api TestLibs.mockito
+    api Libs.rxJava
+    api Libs.rxAndroid
+    api Libs.kotlinStdlib
 }
 repositories {
     mavenCentral()
