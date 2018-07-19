@@ -21,14 +21,17 @@ class MainActivity : BaseActivity(), MainActivityContract.View {
     setupListeners()
   }
 
-  override fun onResume() {
-    super.onResume()
-    val counter = intent?.getIntExtra(INTENT_COUNTER_EXTRA, 0)
+  override fun onStart() {
+    super.onStart()
+    val counter = when (intent?.hasExtra(INTENT_COUNTER_EXTRA)) {
+      true -> intent.getIntExtra(INTENT_COUNTER_EXTRA, 0)
+      else -> null
+    }
     presenter.visible(counter)
   }
 
-  override fun onPause() {
-    super.onPause()
+  override fun onStop() {
+    super.onStop()
     presenter.clear()
   }
 
