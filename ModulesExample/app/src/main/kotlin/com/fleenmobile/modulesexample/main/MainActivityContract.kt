@@ -7,10 +7,10 @@ interface MainActivityContract {
   }
 
   interface Router {
-    fun navigateToSettings()
+    fun navigateToSettings(counter: Int)
   }
 
-  interface Presenter{
+  interface Presenter {
     fun visible()
     fun onPlusClicked()
     fun onMinusClicked()

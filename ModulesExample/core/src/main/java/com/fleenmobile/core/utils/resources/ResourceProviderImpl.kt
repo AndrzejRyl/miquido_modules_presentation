@@ -1,8 +1,9 @@
 package com.fleenmobile.core.utils.resources
 
 import android.content.Context
+import javax.inject.Inject
 
-class ResourceProviderImpl(private val context: Context) : ResourceProvider {
+class ResourceProviderImpl @Inject constructor(private val context: Context) : ResourceProvider {
 
   override fun getString(id: Int): String = context.getString(id)
 

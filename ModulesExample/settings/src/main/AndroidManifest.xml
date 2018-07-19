@@ -3,7 +3,16 @@
   package="com.fleenmobile.settings">
 
   <application>
-    <activity android:name=".view.SettingsActivity" />
+    <activity android:name=".view.SettingsActivity">
+
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data
+          android:host="@string/settings_activity_path"
+          android:scheme="@string/navigation_scheme" />
+      </intent-filter>
+    </activity>
   </application>
 
 </manifest>

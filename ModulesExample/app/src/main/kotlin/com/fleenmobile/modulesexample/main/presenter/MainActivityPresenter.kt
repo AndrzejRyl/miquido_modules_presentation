@@ -19,7 +19,7 @@ class MainActivityPresenter @Inject constructor(
 
   override fun onMinusClicked() = view.showCounter(--counter)
 
-  override fun onSettingsClicked() = router.navigateToSettings()
+  override fun onSettingsClicked() = router.navigateToSettings(counter)
 
   override fun clear() {
     // todo cache counter

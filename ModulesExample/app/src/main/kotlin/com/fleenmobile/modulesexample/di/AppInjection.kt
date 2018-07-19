@@ -2,6 +2,7 @@ package com.fleenmobile.modulesexample.di
 
 import android.app.Application
 import android.content.Context
+import com.fleenmobile.core.di.CoreUtilsModule
 import com.fleenmobile.modulesexample.BaseApplication
 import dagger.Binds
 import dagger.Component
@@ -25,7 +26,8 @@ abstract class AppModule {
   AndroidSupportInjectionModule::class,
   ActivityBuilder::class,
   AppModule::class,
-  NetworkModule::class
+  NetworkModule::class,
+  CoreUtilsModule::class
 ])
 interface AppComponent : AndroidInjector<BaseApplication> {
 
