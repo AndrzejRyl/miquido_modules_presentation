@@ -45,6 +45,7 @@ kapt {
 
 dependencies {
     implementation project(':core')
+    testImplementation project(':testcore')
 
     implementation Libs.constraintLayout
     implementation Libs.dagger2AndroidSupport
@@ -62,4 +63,7 @@ dependencies {
     kapt Libs.dagger2AndroidCompiler
 
     kaptAndroidTest Libs.dagger2Compiler
+
+    testImplementation TestLibs.junit
+    testImplementation TestLibs.mockito
 }
