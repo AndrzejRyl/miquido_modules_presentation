@@ -14,6 +14,7 @@ interface MainActivityContract {
     fun visible()
     fun onPlusClicked()
     fun onMinusClicked()
+    fun onSettingsClicked()
     fun clear()
   }
 }

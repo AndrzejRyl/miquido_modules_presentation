@@ -33,6 +33,7 @@ class MainActivity : BaseActivity(), MainActivityContract.View {
   private fun setupListeners() {
     plusButton.onClick { presenter.onPlusClicked() }
     minusButton.onClick { presenter.onMinusClicked() }
+    settingsButton.onClick { presenter.onSettingsClicked() }
   }
 
   override fun showCounter(counter: Int) {

@@ -4,7 +4,8 @@ import com.fleenmobile.modulesexample.main.MainActivityContract
 import javax.inject.Inject
 
 class MainActivityPresenter @Inject constructor(
-    val view: MainActivityContract.View
+    private val view: MainActivityContract.View,
+    private val router: MainActivityContract.Router
 ) : MainActivityContract.Presenter {
 
   private var counter: Int = 0
@@ -17,6 +18,8 @@ class MainActivityPresenter @Inject constructor(
   override fun onPlusClicked() = view.showCounter(++counter)
 
   override fun onMinusClicked() = view.showCounter(--counter)
+
+  override fun onSettingsClicked() = router.navigateToSettings()
 
   override fun clear() {
     // todo cache counter
