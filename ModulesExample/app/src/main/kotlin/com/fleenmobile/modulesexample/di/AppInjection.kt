@@ -26,7 +26,6 @@ abstract class AppModule {
   AndroidSupportInjectionModule::class,
   ActivityBuilder::class,
   AppModule::class,
-  NetworkModule::class,
   CoreUtilsModule::class
 ])
 interface AppComponent : AndroidInjector<BaseApplication> {
