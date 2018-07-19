@@ -45,6 +45,8 @@ kapt {
 
 dependencies {
     implementation project(':core')
+    implementation project(':settings')
+
     testImplementation project(':testcore')
 
     implementation Libs.constraintLayout

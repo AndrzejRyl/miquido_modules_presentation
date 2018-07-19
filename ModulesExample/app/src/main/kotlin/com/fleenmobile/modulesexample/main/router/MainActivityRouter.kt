@@ -1,11 +1,16 @@
 package com.fleenmobile.modulesexample.main.router
 
 import com.fleenmobile.modulesexample.main.MainActivityContract
+import com.fleenmobile.modulesexample.main.view.MainActivity
+import com.fleenmobile.settings.view.SettingsActivity
+import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
-class MainActivityRouter @Inject constructor() : MainActivityContract.Router {
+class MainActivityRouter @Inject constructor(
+    private val activity: MainActivity
+) : MainActivityContract.Router {
 
   override fun navigateToSettings() {
-    // todo (use deep link so as not to break dependency between modules)
+    activity.startActivity<SettingsActivity>()
   }
 }

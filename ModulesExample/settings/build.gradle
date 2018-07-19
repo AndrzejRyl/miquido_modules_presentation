@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+}
+
+apply plugin: 'kotlin-android-extensions'

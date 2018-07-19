@@ -10,7 +10,7 @@ import dagger.Module
 @Module
 abstract class MainActivityModule {
   @Binds
-  abstract fun mainView(tutorialView: MainActivity): MainActivityContract.View
+  abstract fun mainView(mainView: MainActivity): MainActivityContract.View
 
   @Binds
   abstract fun mainPresenter(presenter: MainActivityPresenter): MainActivityContract.Presenter
