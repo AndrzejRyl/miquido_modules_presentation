@@ -2,6 +2,7 @@ package com.fleenmobile.modulesexample.main.view
 
 import android.os.Bundle
 import com.fleenmobile.core.BaseActivity
+import com.fleenmobile.core.router.ScreenRouter.Companion.INTENT_COUNTER_EXTRA
 import com.fleenmobile.modulesexample.R
 import com.fleenmobile.modulesexample.main.MainActivityContract
 import kotlinx.android.synthetic.main.acitivity_main.*
@@ -22,7 +23,8 @@ class MainActivity : BaseActivity(), MainActivityContract.View {
 
   override fun onResume() {
     super.onResume()
-    presenter.visible()
+    val counter = intent?.getIntExtra(INTENT_COUNTER_EXTRA, 0)
+    presenter.visible(counter)
   }
 
   override fun onPause() {

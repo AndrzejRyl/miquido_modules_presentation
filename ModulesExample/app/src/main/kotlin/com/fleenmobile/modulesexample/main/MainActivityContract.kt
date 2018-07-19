@@ -11,7 +11,7 @@ interface MainActivityContract {
   }
 
   interface Presenter {
-    fun visible()
+    fun visible(counter: Int?)
     fun onPlusClicked()
     fun onMinusClicked()
     fun onSettingsClicked()

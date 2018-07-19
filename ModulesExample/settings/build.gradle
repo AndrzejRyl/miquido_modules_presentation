@@ -13,7 +13,10 @@ android {
 
 dependencies {
     implementation project(':core')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation Libs.constraintLayout
+
+    implementation Libs.anko
+    implementation Libs.anko_commons
 }
 
 apply plugin: 'kotlin-android-extensions'

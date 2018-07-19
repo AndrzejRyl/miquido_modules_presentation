@@ -10,9 +10,11 @@ class MainActivityPresenter @Inject constructor(
 
   private var counter: Int = 0
 
-  override fun visible() {
-    // todo get cached value
-    view.showCounter(counter)
+  override fun visible(counter: Int?) {
+    counter?.let {
+      this.counter = it
+      view.showCounter(it)
+    }// todo get cached value
   }
 
   override fun onPlusClicked() = view.showCounter(++counter)

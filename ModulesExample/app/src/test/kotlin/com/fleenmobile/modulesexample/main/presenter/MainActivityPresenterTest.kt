@@ -50,7 +50,7 @@ class MainActivityPresenterTest : BaseTest() {
   fun `should initialize view`() {
     mockPositiveCounterResponse() // TODO mock caching service when it's implemented
 
-    presenter.visible()
+    presenter.visible(counter)
 
 
     verify(view, times(1)).showCounter(mockCounter)

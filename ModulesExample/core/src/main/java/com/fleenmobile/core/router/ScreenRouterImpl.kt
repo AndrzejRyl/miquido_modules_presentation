@@ -16,7 +16,10 @@ class ScreenRouterImpl @Inject constructor(
   private val scheme = resourceProvider.getString(R.string.navigation_scheme)
 
   private fun getNavigationIntent(path: String) =
-      Intent(ACTION_VIEW, Uri.parse("$scheme://$path"))
+      Intent(ACTION_VIEW, Uri.parse("$scheme://$path")).apply {
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+      }
 
   override fun navigateToMain(counter: Int) {
     getNavigationIntent(resourceProvider.getString(R.string.main_activity_path)).apply {
