@@ -21,6 +21,7 @@ object Versions {
   const val constraintLayout = "1.1.2"
   const val glide = "4.7.1"
   const val joda = "2.9.9"
+  const val anko = "0.10.2"
 }
 
 object ClassPaths {
@@ -52,6 +53,8 @@ object Libs {
   const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
   const val glideProcessor = "om.github.bumptech.glide:compiler:${Versions.glide}"
   const val joda = "net.danlew:android.joda:${Versions.joda}"
+  const val anko = "org.jetbrains.anko:anko:${Versions.anko}"
+  const val anko_commons = "org.jetbrains.anko:anko-commons:${Versions.anko}"
 }
 
 object TestLibs {

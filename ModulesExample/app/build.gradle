@@ -46,14 +46,17 @@ kapt {
 dependencies {
     implementation project(':core')
 
+    implementation Libs.constraintLayout
     implementation Libs.dagger2AndroidSupport
     implementation Libs.timber
     implementation Libs.leakCanary
     implementation Libs.stetho
     implementation Libs.stethoNetwork
-    implementation (Libs.crashlytics) {
+    implementation(Libs.crashlytics) {
         transitive = true
     }
+    implementation Libs.anko
+    implementation Libs.anko_commons
 
     kapt Libs.dagger2Compiler
     kapt Libs.dagger2AndroidCompiler
