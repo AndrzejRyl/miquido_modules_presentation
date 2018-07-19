@@ -6,8 +6,8 @@ import com.fleenmobile.modulesexample.BaseApplication
 import dagger.Binds
 import dagger.Component
 import dagger.Module
-import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Module
@@ -22,7 +22,8 @@ abstract class AppModule {
 
 @Singleton
 @Component(modules = [
-  AndroidInjectionModule::class,
+  AndroidSupportInjectionModule::class,
+  ActivityBuilder::class,
   AppModule::class,
   NetworkModule::class
 ])
