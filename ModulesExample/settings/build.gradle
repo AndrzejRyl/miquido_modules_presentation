@@ -13,10 +13,15 @@ android {
 
 dependencies {
     implementation project(':core')
-    implementation Libs.constraintLayout
 
+    testImplementation project(':testcore')
+
+    implementation Libs.constraintLayout
     implementation Libs.anko
     implementation Libs.anko_commons
+
+    testImplementation TestLibs.junit
+    testImplementation TestLibs.mockito
 }
 
 apply plugin: 'kotlin-android-extensions'
