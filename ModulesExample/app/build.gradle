@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply plugin: 'io.fabric'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath ClassPaths.fabric
+    }
+}
+
+android {
+    compileSdkVersion Versions.compileSdk
+    defaultConfig {
+        applicationId "com.fleenmobile.modulesexample"
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    api project(':settings')
+
+    testApi project(':testcore')
+
+    implementation Libs.constraintLayout
+    implementation Libs.dagger2AndroidSupport
+    implementation Libs.timber
+    implementation Libs.leakCanary
+    implementation Libs.stetho
+    implementation Libs.stethoNetwork
+    implementation(Libs.crashlytics) {
+        transitive = true
+    }
+
+    kapt Libs.dagger2Compiler
+    kapt Libs.dagger2AndroidCompiler
+
+    kaptAndroidTest Libs.dagger2Compiler
+}
