@@ -1,8 +1,8 @@
 package {{ cookiecutter.base_package_name }}.testcore
 
-{% if cookiecutter.rxandroid_lib == "y" %}import io.reactivex.android.plugins.RxAndroidPlugins{% endif %}
-{% if cookiecutter.rxjava_lib == "y" %}import io.reactivex.plugins.RxJavaPlugins{% endif %}
-{% if cookiecutter.rxjava_lib == "y" %}import io.reactivex.schedulers.Schedulers{% endif %}
+{% if cookiecutter.rxjava_lib == "y" %}import io.reactivex.android.plugins.RxAndroidPlugins
+import io.reactivex.plugins.RxJavaPlugins
+import io.reactivex.schedulers.Schedulers{% endif %}
 import org.junit.After
 import org.junit.Before
 import org.mockito.ArgumentCaptor
@@ -16,18 +16,18 @@ abstract class BaseTest {
     MockitoAnnotations.initMocks(this)
   }
 
-  protected fun trampolineRxPlugin() {
-    {% if cookiecutter.rxandroid_lib == "y" %}RxAndroidPlugins.setMainThreadSchedulerHandler { Schedulers.trampoline() }{% endif %}
-    {% if cookiecutter.rxjava_lib == "y" %}RxJavaPlugins.setComputationSchedulerHandler { Schedulers.trampoline() }
+  {% if cookiecutter.rxjava_lib == "y" %}protected fun trampolineRxPlugin() {
+    RxAndroidPlugins.setMainThreadSchedulerHandler { Schedulers.trampoline() }
+    RxJavaPlugins.setComputationSchedulerHandler { Schedulers.trampoline() }
     RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
     RxJavaPlugins.setSingleSchedulerHandler { Schedulers.trampoline() }
-    RxJavaPlugins.setNewThreadSchedulerHandler { Schedulers.trampoline() }{% endif %}
-  }
+    RxJavaPlugins.setNewThreadSchedulerHandler { Schedulers.trampoline() }
+  }{% endif %}
 
   @After
   open fun tearDown() {
-    {% if cookiecutter.rxandroid_lib == "y" %}RxAndroidPlugins.reset(){% endif %}
-    {% if cookiecutter.rxjava_lib == "y" %}RxJavaPlugins.reset(){% endif %}
+    {% if cookiecutter.rxjava_lib == "y" %}RxAndroidPlugins.reset()
+    RxJavaPlugins.reset(){% endif %}
   }
 
   protected fun <T> any(): T {

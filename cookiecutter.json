@@ -8,7 +8,6 @@
   "target_sdk": 28,
   "version": "1.0",
   "rxjava_lib": "n",
-  "rxandroid_lib": "n",
   "stetho_lib": "n",
   "constraint_layout_lib": "n",
   "crashlytics_lib": "n",

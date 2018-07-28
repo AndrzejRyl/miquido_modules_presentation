@@ -22,8 +22,8 @@ dependencies {
 
     api TestLibs.junit
     api TestLibs.mockito
-    {% if cookiecutter.rxjava_lib == "y" %}api Libs.rxJava{% endif %}
-    {% if cookiecutter.rxandroid_lib == "y" %}api Libs.rxAndroid{% endif %}
+    {% if cookiecutter.rxjava_lib == "y" %}api Libs.rxJava
+    api Libs.rxAndroid{% endif %}
     api Libs.kotlinStdlib
 }
 repositories {

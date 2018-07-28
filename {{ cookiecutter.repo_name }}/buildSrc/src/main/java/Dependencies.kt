@@ -12,8 +12,8 @@ object Versions {
   const val timber = "4.6.1"
   {% if cookiecutter.leak_canary_lib == "y" %}const val leakCanary = "1.5.4"{% endif %}
   const val dagger2 = "2.14.1"
-  {% if cookiecutter.rxandroid_lib == "y" %}const val rxAndroid = "2.0.2"{% endif %}
-  {% if cookiecutter.rxjava_lib == "y" %}const val rxJava = "2.1.11"{% endif %}
+  {% if cookiecutter.rxjava_lib == "y" %}const val rxAndroid = "2.0.2"
+  const val rxJava = "2.1.11"{% endif %}
   {% if cookiecutter.stetho_lib == "y" %}const val stetho = "1.5.0"{% endif %}
   {% if cookiecutter.constraint_layout_lib == "y" %}const val constraintLayout = "1.1.2"{% endif %}
   const val anko = "0.10.2"
@@ -37,8 +37,8 @@ object Libs {
   const val dagger2Android = "com.google.dagger:dagger-android:${Versions.dagger2}"
   const val dagger2AndroidSupport = "com.google.dagger:dagger-android-support:${Versions.dagger2}"
   const val dagger2AndroidCompiler = "com.google.dagger:dagger-android-processor:${Versions.dagger2}"
-  {% if cookiecutter.rxandroid_lib == "y" %}const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"{% endif %}
-  {% if cookiecutter.rxjava_lib == "y" %}const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"{% endif %}
+  {% if cookiecutter.rxjava_lib == "y" %}const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+  const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"{% endif %}
   {% if cookiecutter.stetho_lib == "y" %}const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"{% endif %}
   {% if cookiecutter.stetho_lib == "y" %}const val stethoNetwork = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"{% endif %}
   {% if cookiecutter.constraint_layout_lib == "y" %}const val constraintLayout = "com.android.support.constraint:constraint-layout:${Versions.constraintLayout}"{% endif %}
