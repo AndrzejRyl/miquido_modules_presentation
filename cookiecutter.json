@@ -1,0 +1,14 @@
+{
+  "app_name": "MyApplication",
+  "repo_name": "{{ cookiecutter.app_name|lower|replace(' ', '-') }}",
+  "base_package_name": "com.fleenmobile",
+  "app_package_name": "{{ cookiecutter.base_package_name }}.{{ cookiecutter.app_name|lower|replace(' ', '')|replace('-', '') }}",
+  "app_package_dir": "{{ cookiecutter.app_package_name | replace('.', '/') }}",
+  "min_sdk": 19,
+  "target_sdk": 28,
+  "version": "1.0",
+  "rxjava_lib": "n",
+  "rxandroid_lib": "n",
+  "stetho_lib": "n",
+  "constraint_layout_lib": "n"
+}
