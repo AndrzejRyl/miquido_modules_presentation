@@ -9,6 +9,14 @@ android {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
     }
+	
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
 }
 
 dependencies {
@@ -24,7 +32,7 @@ dependencies {
 
     kaptAndroidTest Libs.dagger2Compiler
 
-    api Libs.constraintLayout
+    {% if cookiecutter.constraint_layout_lib == "y" %}api Libs.constraintLayout{% endif %}
     api Libs.anko
     api Libs.anko_commons
 }

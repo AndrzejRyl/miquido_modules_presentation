@@ -2,5 +2,4 @@
 <resources>
   <string name="navigation_scheme" translatable="false">module-navigation</string>
   <string name="main_activity_path" translatable="false">main</string>
-  <string name="settings_activity_path" translatable="false">settings</string>
 </resources>

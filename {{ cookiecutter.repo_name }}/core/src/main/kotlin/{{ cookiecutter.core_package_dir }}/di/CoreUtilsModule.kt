@@ -1,13 +1,13 @@
-package com.fleenmobile.core.di
+package {{ cookiecutter.base_package_name }}.core.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.fleenmobile.core.configuration.Configuration
-import com.fleenmobile.core.configuration.ConfigurationImpl
-import com.fleenmobile.core.router.ScreenRouter
-import com.fleenmobile.core.router.ScreenRouterImpl
-import com.fleenmobile.core.utils.resources.ResourceProvider
-import com.fleenmobile.core.utils.resources.ResourceProviderImpl
+import {{ cookiecutter.base_package_name }}.core.configuration.Configuration
+import {{ cookiecutter.base_package_name }}.core.configuration.ConfigurationImpl
+import {{ cookiecutter.base_package_name }}.core.router.ScreenRouter
+import {{ cookiecutter.base_package_name }}.core.router.ScreenRouterImpl
+import {{ cookiecutter.base_package_name }}.core.utils.resources.ResourceProvider
+import {{ cookiecutter.base_package_name }}.core.utils.resources.ResourceProviderImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,7 @@ abstract class CoreUtilsModule {
   @Module
   companion object {
 
-    private const val SHARED_PREFERENCES_NAME = "ModulesExamplePreferences"
+    private const val SHARED_PREFERENCES_NAME = "{{ cookiecutter.app_name }}Preferences"
 
     @JvmStatic
     @Provides

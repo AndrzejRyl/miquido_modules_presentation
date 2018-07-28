@@ -1,4 +1,4 @@
-package com.fleenmobile.core
+package {{ cookiecutter.base_package_name }}.core
 
 import dagger.android.support.DaggerAppCompatActivity
 

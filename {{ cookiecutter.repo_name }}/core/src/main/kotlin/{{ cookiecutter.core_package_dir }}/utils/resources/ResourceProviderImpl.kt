@@ -1,4 +1,4 @@
-package com.fleenmobile.core.utils.resources
+package {{ cookiecutter.base_package_name }}.core.utils.resources
 
 import android.content.Context
 import javax.inject.Inject

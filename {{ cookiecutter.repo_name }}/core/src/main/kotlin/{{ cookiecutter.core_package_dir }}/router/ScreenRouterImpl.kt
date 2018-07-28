@@ -1,12 +1,11 @@
-package com.fleenmobile.core.router
+package {{ cookiecutter.base_package_name }}.core.router
 
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.ACTION_VIEW
 import android.net.Uri
-import com.fleenmobile.core.R
-import com.fleenmobile.core.router.ScreenRouter.Companion.INTENT_COUNTER_EXTRA
-import com.fleenmobile.core.utils.resources.ResourceProvider
+import {{ cookiecutter.base_package_name }}.core.R
+import {{ cookiecutter.base_package_name }}.core.utils.resources.ResourceProvider
 import javax.inject.Inject
 
 class ScreenRouterImpl @Inject constructor(
@@ -21,16 +20,8 @@ class ScreenRouterImpl @Inject constructor(
         addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
       }
 
-  override fun navigateToMain(counter: Int) {
+  override fun navigateToMain() {
     getNavigationIntent(resourceProvider.getString(R.string.main_activity_path)).apply {
-      putExtra(INTENT_COUNTER_EXTRA, counter)
-      context.startActivity(this)
-    }
-  }
-
-  override fun navigateToSettings(counter: Int) {
-    getNavigationIntent(resourceProvider.getString(R.string.settings_activity_path)).apply {
-      putExtra(INTENT_COUNTER_EXTRA, counter)
       context.startActivity(this)
     }
   }
