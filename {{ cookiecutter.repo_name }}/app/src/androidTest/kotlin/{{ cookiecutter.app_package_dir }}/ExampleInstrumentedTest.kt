@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
   fun useAppContext() {
     // Context of the app under test.
     val appContext = InstrumentationRegistry.getTargetContext()
-    assertEquals("com.fleenmobile.modulesexample", appContext.packageName)
+    assertEquals("{{ cookiecutter.app_package_name }}", appContext.packageName)
   }
 }
