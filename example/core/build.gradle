@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api Libs.supportAppcompat
+    api Libs.kotlinStdlib
+
+    api Libs.dagger2AndroidSupport
+
+    kapt Libs.dagger2Compiler
+    kapt Libs.dagger2AndroidCompiler
+
+    kaptAndroidTest Libs.dagger2Compiler
+
+    api Libs.constraintLayout
+    api Libs.anko
+    api Libs.anko_commons
+}

@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api TestLibs.junit
+    api TestLibs.mockito
+    api Libs.rxJava
+    api Libs.rxAndroid
+    api Libs.kotlinStdlib
+}
+repositories {
+    mavenCentral()
+}
