@@ -2,8 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlin-kapt"
-apply plugin: 'io.fabric'
+{% if cookiecutter.crashlytics_lib == "y" %}apply plugin: 'io.fabric'{% endif %}
 
+{% if cookiecutter.crashlytics_lib == "y" %}
 buildscript {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
@@ -12,15 +13,16 @@ buildscript {
         classpath ClassPaths.fabric
     }
 }
+{% endif %}
 
 android {
     compileSdkVersion Versions.compileSdk
     defaultConfig {
-        applicationId "com.fleenmobile.modulesexample"
+        applicationId "{{ cookiecutter.app_package_name }}"
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
         versionCode 1
-        versionName "1.0"
+        versionName "{{ cookiecutter.version }}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -44,19 +46,19 @@ kapt {
 }
 
 dependencies {
-    api project(':settings')
+    api project(':core')
 
     testApi project(':testcore')
 
-    implementation Libs.constraintLayout
+    {% if cookiecutter.constraint_layout_lib == "y" %}implementation Libs.constraintLayout{% endif %}
     implementation Libs.dagger2AndroidSupport
     implementation Libs.timber
-    implementation Libs.leakCanary
-    implementation Libs.stetho
-    implementation Libs.stethoNetwork
-    implementation(Libs.crashlytics) {
+    {% if cookiecutter.leak_canary_lib == "y" %}implementation Libs.leakCanary{% endif %}
+    {% if cookiecutter.stetho_lib == "y" %}implementation Libs.stetho{% endif %}
+    {% if cookiecutter.stetho_lib == "y" %}implementation Libs.stethoNetwork{% endif %}
+    {% if cookiecutter.crashlytics_lib == "y" %}implementation(Libs.crashlytics) {
         transitive = true
-    }
+    }{% endif %}
 
     kapt Libs.dagger2Compiler
     kapt Libs.dagger2AndroidCompiler
