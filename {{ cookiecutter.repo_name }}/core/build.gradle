@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+    }
+	
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api Libs.supportAppcompat
+    api Libs.kotlinStdlib
+
+    api Libs.dagger2AndroidSupport
+
+    kapt Libs.dagger2Compiler
+    kapt Libs.dagger2AndroidCompiler
+
+    kaptAndroidTest Libs.dagger2Compiler
+
+    {% if cookiecutter.constraint_layout_lib == "y" %}api Libs.constraintLayout{% endif %}
+    api Libs.anko
+    api Libs.anko_commons
+}

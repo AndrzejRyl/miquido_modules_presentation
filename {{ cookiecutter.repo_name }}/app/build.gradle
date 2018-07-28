@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+{% if cookiecutter.crashlytics_lib == "y" %}apply plugin: 'io.fabric'{% endif %}
+
+{% if cookiecutter.crashlytics_lib == "y" %}
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath ClassPaths.fabric
+    }
+}
+{% endif %}
+
+android {
+    compileSdkVersion Versions.compileSdk
+    defaultConfig {
+        applicationId "{{ cookiecutter.app_package_name }}"
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode 1
+        versionName "{{ cookiecutter.version }}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    api project(':core')
+
+    testApi project(':testcore')
+
+    {% if cookiecutter.constraint_layout_lib == "y" %}implementation Libs.constraintLayout{% endif %}
+    implementation Libs.dagger2AndroidSupport
+    implementation Libs.timber
+    {% if cookiecutter.leak_canary_lib == "y" %}implementation Libs.leakCanary{% endif %}
+    {% if cookiecutter.stetho_lib == "y" %}implementation Libs.stetho{% endif %}
+    {% if cookiecutter.stetho_lib == "y" %}implementation Libs.stethoNetwork{% endif %}
+    {% if cookiecutter.crashlytics_lib == "y" %}implementation(Libs.crashlytics) {
+        transitive = true
+    }{% endif %}
+
+    kapt Libs.dagger2Compiler
+    kapt Libs.dagger2AndroidCompiler
+
+    kaptAndroidTest Libs.dagger2Compiler
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="navigation_scheme" translatable="false">module-navigation</string>
+  <string name="main_activity_path" translatable="false">main</string>
+</resources>
