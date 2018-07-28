@@ -44,3 +44,8 @@ and run
 Script will ask you basic questions about new project (like project name, min sdk etc.)
 and libraries you want to include (at default each library is set to "n" which means 'DO NOT INCLUDE'.
 If you want it in your project just answer with "y").
+
+
+## Thanks to
+I'd like to thank Dawid Firuzek. His repo was the main resource for this project.
+https://github.com/dawidfiruzek/android-kotlin-template
