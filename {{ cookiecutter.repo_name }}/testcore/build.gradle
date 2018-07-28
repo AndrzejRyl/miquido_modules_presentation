@@ -8,6 +8,13 @@ android {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
 }
 
 dependencies {
@@ -15,8 +22,8 @@ dependencies {
 
     api TestLibs.junit
     api TestLibs.mockito
-    api Libs.rxJava
-    api Libs.rxAndroid
+    {% if cookiecutter.rxjava_lib == "y" %}api Libs.rxJava{% endif %}
+    {% if cookiecutter.rxandroid_lib == "y" %}api Libs.rxAndroid{% endif %}
     api Libs.kotlinStdlib
 }
 repositories {
