@@ -1,9 +1,9 @@
-package com.fleenmobile.modulesexample.di
+package {{ cookiecutter.app_package_name }}.di
 
 import android.app.Application
 import android.content.Context
-import com.fleenmobile.core.di.CoreUtilsModule
-import com.fleenmobile.modulesexample.BaseApplication
+import {{ cookiecutter.base_package_name }}.core.di.CoreUtilsModule
+import {{ cookiecutter.app_package_name }}.BaseApplication
 import dagger.Binds
 import dagger.Component
 import dagger.Module

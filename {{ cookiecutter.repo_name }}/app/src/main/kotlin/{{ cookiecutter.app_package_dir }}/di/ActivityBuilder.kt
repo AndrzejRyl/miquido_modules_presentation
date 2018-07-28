@@ -1,9 +1,7 @@
-package com.fleenmobile.modulesexample.di
+package {{ cookiecutter.app_package_name }}.di
 
-import com.fleenmobile.modulesexample.di.module.MainActivityModule
-import com.fleenmobile.modulesexample.main.view.MainActivity
-import com.fleenmobile.settings.di.SettingsActivityModule
-import com.fleenmobile.settings.view.SettingsActivity
+import {{ cookiecutter.app_package_name }}.di.module.MainActivityModule
+import {{ cookiecutter.app_package_name }}.main.view.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -11,7 +9,4 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuilder {
   @ContributesAndroidInjector(modules = arrayOf(MainActivityModule::class))
   abstract fun mainActivity(): MainActivity
-
-  @ContributesAndroidInjector(modules = arrayOf(SettingsActivityModule::class))
-  abstract fun settingsActivity(): SettingsActivity
 }

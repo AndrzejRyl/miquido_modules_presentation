@@ -1,9 +1,9 @@
-package com.fleenmobile.modulesexample.di.module
+package {{ cookiecutter.app_package_name }}.di.module
 
-import com.fleenmobile.modulesexample.main.MainActivityContract
-import com.fleenmobile.modulesexample.main.presenter.MainActivityPresenter
-import com.fleenmobile.modulesexample.main.router.MainActivityRouter
-import com.fleenmobile.modulesexample.main.view.MainActivity
+import {{ cookiecutter.app_package_name }}.main.MainActivityContract
+import {{ cookiecutter.app_package_name }}.main.presenter.MainActivityPresenter
+import {{ cookiecutter.app_package_name }}.main.router.MainActivityRouter
+import {{ cookiecutter.app_package_name }}.main.view.MainActivity
 import dagger.Binds
 import dagger.Module
 
