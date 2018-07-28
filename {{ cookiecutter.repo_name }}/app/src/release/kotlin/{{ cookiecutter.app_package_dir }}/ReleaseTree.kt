@@ -1,7 +1,7 @@
-package com.fleenmobile.modulesexample
+package {{ cookiecutter.app_package_name }}
 
 import android.util.Log
-import com.crashlytics.android.Crashlytics
+{% if cookiecutter.crashlytics_lib == "y" %}import com.crashlytics.android.Crashlytics{% endif %}
 import timber.log.Timber
 
 class ReleaseTree : Timber.Tree() {
@@ -19,13 +19,13 @@ class ReleaseTree : Timber.Tree() {
       return
     }
 
-    if (priority == Log.ERROR && t != null) {
+    {% if cookiecutter.crashlytics_lib == "y" %}if (priority == Log.ERROR && t != null) {
       Crashlytics.logException(t)
-    }
+    }{% endif %}
 
     if (message.length < MAX_LOG_LENGTH) {
       logToLogcat(priority, tag, message)
-      logToCrashlyics(priority, tag, message)
+      {% if cookiecutter.crashlytics_lib == "y" %}logToCrashlyics(priority, tag, message){% endif %}
       return
     }
 
@@ -54,9 +54,9 @@ class ReleaseTree : Timber.Tree() {
     }
   }
 
-  private fun logToCrashlyics(priority: Int, tag: String?, message: String) {
+  {% if cookiecutter.crashlytics_lib == "y" %}private fun logToCrashlyics(priority: Int, tag: String?, message: String) {
     if (priority == Log.ERROR) {
       Crashlytics.log(priority, tag ?: UNKNOWN_TAG, message)
     }
-  }
+  }{% endif %}
 }

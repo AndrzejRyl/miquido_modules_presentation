@@ -1,4 +1,4 @@
-package com.fleenmobile.modulesexample
+package {{ cookiecutter.app_package_name }}
 
 import timber.log.Timber
 
